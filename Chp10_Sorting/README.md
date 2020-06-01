@@ -1,1 +1,1 @@
-# Chparter10. 정렬
+# Chapter10. 정렬

@@ -1,1 +1,1 @@
-# Chparter6. 스택
+# Chapter6. 스택
