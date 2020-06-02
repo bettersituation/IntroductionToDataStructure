@@ -3,3 +3,11 @@
 *.vcxproj.filters
 *.vcxproj.user
 .vs/
+*.lastbuildstate
+*.tlog
+*.log
+*.obj
+*.idb
+*.pdb
+*.exe
+*.ilk
