@@ -2,13 +2,13 @@
 
 Chapter4 에서는 Chapter3 의 배열을 이용한 List 와 다르게 동적으로 Node 를 생성해 할당해본다.  
 ADT 를 아래와 같이 정의한다.  
-- void ListInit(List * plist);
-- void LInsert(List * plist, LData data);
-- int LFirst(List * plist, LData data);
-- int LNext(List * plist, LData * pdata);
-- LData Remove(List * plist);
-- int LCount(List * plist);
-- void SetSortRule(List * plist, int (*comp)(LData d1, LData d2));
+- void ListInit(List \* plist);
+- void LInsert(List \* plist, LData data);
+- int LFirst(List \* plist, LData data);
+- int LNext(List \* plist, LData \* pdata);
+- LData Remove(List \* plist);
+- int LCount(List \* plist);
+- void SetSortRule(List \* plist, int (\*comp)(LData d1, LData d2));
 
 ---
 
