@@ -62,4 +62,4 @@
 
 - 아래 이미지로 설명을 대체한다.  
 
-![](./assets/Merge-sort.gif)
+![](../assets/Merge-sort.gif)
