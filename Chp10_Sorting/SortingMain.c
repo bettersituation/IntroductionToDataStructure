@@ -21,6 +21,9 @@ int main(void)
 	//HeapSort(arr, n, LessPriority);
 	//PrintArray(arr, n);
 
-	MergeSort(arr, n, LessPriority);
+	//MergeSort(arr, n, LessPriority);
+	//PrintArray(arr, n);
+
+	QuickSort(arr, n, LessPriority);
 	PrintArray(arr, n);
 }

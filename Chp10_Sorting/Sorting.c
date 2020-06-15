@@ -176,14 +176,84 @@ void MergeSort(int arr[], int n, Priority p)
 	mergeSort(arr, 0, n - 1, p);
 }
 
+void swap(int arr[], int idx1, int idx2)
+{
+	int temp = arr[idx1];
+	arr[idx1] = arr[idx2];
+	arr[idx2] = temp;
+}
 
-void QuickSort(int arr[], int n, Priority p);
+int partition(int arr[], int left, int right, Priority p)
+{
+	int pivot = arr[left];
+	int low = left + 1;
+	int high = right;
+	int tmp;
+
+	while (1)
+	{
+		while (p(arr[low], pivot) > 0)
+		{
+			low++;
+			if (low > high)
+			{
+				break;
+			}
+		}
+
+		while (p(pivot, arr[high]) > 0)
+		{
+			high--;
+			if (high < low)
+			{
+				break;
+			}
+		}
+
+		if (high < low)
+		{
+			arr[left] = arr[high];
+			arr[high] = pivot;
+			break;
+		}
+
+		if (low < high)
+		{
+			tmp = arr[low];
+			arr[low] = arr[high];
+			arr[high] = tmp;
+		}
+	}
+
+	return high;
+}
+
+void quickSort(int arr[], int left, int right, Priority p)
+{
+	int pivotIDX;
+
+	if (left < right)
+	{
+		pivotIDX = partition(arr, left, right, p);
+		quickSort(arr, left, pivotIDX - 1, p);
+		quickSort(arr, pivotIDX + 1, right, p);
+	}
+}
+
+void QuickSort(int arr[], int n, Priority p)
+{
+	if (n <= 1)
+	{
+		return;
+	}
+
+	quickSort(arr, 0, n - 1, p);
+}
+
 void RadixSort(int arr[], int n, Priority p);
 
 void PrintArray(int arr[], int n)
 {
-	printf("Array Size: %d\n", n);
-
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", arr[i]);
