@@ -24,6 +24,9 @@ int main(void)
 	//MergeSort(arr, n, LessPriority);
 	//PrintArray(arr, n);
 
-	QuickSort(arr, n, LessPriority);
-	PrintArray(arr, n);
+	//QuickSort(arr, n, LessPriority);
+	//PrintArray(arr, n);
+
+	//RadixSort(arr, n, LessPriority);
+	//PrintArray(arr, n);
 }

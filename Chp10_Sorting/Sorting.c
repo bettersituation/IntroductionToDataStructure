@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Sorting.h"
 #include "Heap.h"
+#include "Queue.h"
 
 
 void BubbleSort(int arr[], int n, Priority p)
@@ -250,7 +251,75 @@ void QuickSort(int arr[], int n, Priority p)
 	quickSort(arr, 0, n - 1, p);
 }
 
-void RadixSort(int arr[], int n, Priority p);
+int maxE(int arr[], int n)
+{
+	int maxElem = -1;
+
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > maxElem)
+		{
+			maxElem = arr[i];
+		}
+	}
+
+	return maxElem;
+}
+
+int digit(int n)
+{
+	int i = 0;
+
+	while (n / 10 > 0)
+	{
+		i++;
+	}
+
+	return i;
+}
+
+
+void RadixSort(int arr[], int n, Priority p)
+{
+	int maxDigit = digit(maxE(arr, n));
+	int bn;
+	Queue Buckets[10];
+	int nums[10];
+	int idx;
+
+	for (int i = 0; i < 10; i++)
+	{
+		QueueInit(&Buckets[i]);
+		nums[i] = 0;
+	}
+
+	for (int i = 0; i < maxDigit + 1; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			bn = arr[j];
+
+			for (int k = 0; k < i; k++)
+			{
+				bn /= 10;
+			}
+			bn %= 10;
+
+			Enqueue(&Buckets[bn], arr[j]);
+			nums[bn]++;
+		}
+
+		idx = 0;
+		for (int l = 0; l < 10; l++)
+		{
+			for (int m = 0; m < nums[l]; m++)
+			{
+				arr[idx] = Dequeue(&Buckets[l]);
+				idx++;
+			}
+		}
+	}
+}
 
 void PrintArray(int arr[], int n)
 {
